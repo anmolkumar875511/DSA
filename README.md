@@ -1,27 +1,26 @@
----
-
 # 📘 DSA Practice – Striver A2Z Sheet (C++)
 
-This repository contains my **Data Structures & Algorithms (DSA)** practice solutions in **C++**, following the **Striver A2Z DSA Sheet**.
+This repository contains my **Data Structures & Algorithms (DSA)** practice solutions in **C++**, based on the **Striver A2Z DSA Sheet**.
 
-The goal of this repository is to:
+The purpose of this repository is to:
 
 * Build strong DSA fundamentals
 * Maintain well-structured, topic-wise solutions
-* Track my consistency and learning progress
+* Track my learning progress and consistency
 
 ---
 
 ## 🧭 About Striver A2Z DSA Sheet
 
-The **Striver A2Z Sheet** is a structured roadmap that covers:
+The **Striver A2Z DSA Sheet** is a well-structured roadmap designed to take learners from **basic concepts to advanced DSA topics**.
 
-* Basics → Advanced DSA
+It focuses on:
+
 * Step-by-step topic progression
-* Frequently asked interview problems
+* Important and frequently asked interview problems
+* Building problem-solving intuition
 
-This repo follows the same **step & lecture-wise organization**.
-
+This repository follows the same **step & lecture-wise organization**.
 
 ---
 
@@ -29,19 +28,21 @@ This repo follows the same **step & lecture-wise organization**.
 
 * **Language:** C++
 * **Compiler:** `g++`
-* **OS:** Linux (Arch)
+* **Operating System:** Linux (Arch)
 * **Version Control:** Git & GitHub
 
 ---
 
 ## 🚀 How to Run a File
 
+Compile and run using:
+
 ```bash
 g++ filename.cpp
 ./a.out
 ```
 
-Or with custom output name:
+Or compile with a custom output name:
 
 ```bash
 g++ filename.cpp -o run
@@ -53,36 +54,26 @@ g++ filename.cpp -o run
 ## 📌 Notes
 
 * Compiled binaries are **ignored** using `.gitignore`
-* Code is written with **clarity & beginner-friendliness**
-* Solutions may improve over time as I learn better approaches
+* Code is written with clarity and beginner-friendliness in mind
+* Solutions may be improved or optimized as my understanding grows
 
 ---
 
-## 🎯 Goal
+## 🎯 Goals
 
-* Complete **entire Striver A2Z Sheet**
-* Strengthen problem-solving skills
-* Prepare for **internships & placements**
+* Complete the **entire Striver A2Z DSA Sheet**
+* Strengthen core problem-solving skills
+* Prepare for **internships and placements**
 
 ---
 
 ## 🤝 Acknowledgements
 
 * **Striver (Raj Vikramaditya)** for the A2Z DSA Sheet
-* Coding platforms & community discussions
+* Coding platforms and community discussions for learning support
 
 ---
 
 ## ⭐ Feedback
 
-If you find a better approach or optimization, feel free to suggest improvements.
-
----
-
-If you want, I can also:
-
-* 🔥 Make it **more internship-oriented**
-* 📊 Add **progress tracking table**
-* 🏷️ Add **badges (C++, GitHub, Linux)**
-
-Just tell me 👍
+Suggestions, optimizations, or improvements are always welcome.
