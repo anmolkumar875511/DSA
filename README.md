@@ -1,5 +1,5 @@
 ![C++](https://img.shields.io/badge/Language-C%2B%2B-blue)
-![Platform](https://img.shields.io/badge/Platform-Linux-yellow)
+![Platform](https://img.shields.io/badge/Platform-ArchLinux-yellow)
 ![GitHub](https://img.shields.io/badge/Version%20Control-GitHub-black)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
