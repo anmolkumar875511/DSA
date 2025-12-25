@@ -1,5 +1,5 @@
 ![C++](https://img.shields.io/badge/Language-C%2B%2B-blue)
-![Platform](https://img.shields.io/badge/Platform-ArchLinux-yellow)
+![OS Platform](https://img.shields.io/badge/Platform-ArchLinux-yellow)
 ![GitHub](https://img.shields.io/badge/Version%20Control-GitHub-black)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
@@ -33,6 +33,7 @@ This repository follows the same **step & lecture-wise organization**.
 
 * **Language:** C++
 * **Compiler:** `g++`
+* **Text Editor** Vim
 * **Operating System:** Linux (Arch)
 * **Version Control:** Git & GitHub
 
