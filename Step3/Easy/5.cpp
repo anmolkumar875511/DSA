@@ -2,31 +2,27 @@
 #include<vector>
 using namespace std;
 
-class Solution {
-public:
-    void rotate(vector<int>& nums, int k) {
-        int n = nums.size();
-        k = k % n;
-        int idx;
-        vector<int> rotated(n);
-        for(int i = 0; i < n; i++){
-            idx = (i + k) % n;
-            rotated[idx] = nums[i];
-        }
-        for(int i = 0; i < n; i++){
-            nums[i] = rotated[i];
-        }
-    }
-};
+void rotateArrayByOne(vector<int>& v){
+
+	int temp = v[0];
+	int n = v.size();
+
+	if(n < 2) return;
+
+	for(int i = 1; i < n; i++){
+		v[i - 1] = v[i];
+	}
+
+	v[n - 1] = temp;
+}
 
 int main(){
-    Solution sol;
-    vector<int> nums = {1, 2, 3, 4, 5, 6, 7};
-    int k = 3;
-    sol.rotate(nums, k);
-    cout << "The rotated array is: ";
-    for(int num : nums){
-        cout << num << " ";
-    }
-    cout << endl;
+	vector<int> v = {1, 2, 3, 4, 5};
+	rotateArrayByOne(v);
+	cout << "The rotated array is: ";
+	for(int i : v){
+		cout << i << " ";
+	}
+	cout << endl;
+	return 0;
 }
