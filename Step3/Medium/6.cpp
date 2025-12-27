@@ -5,27 +5,13 @@ using namespace std;
 
 class Solution {
 public:
-    pair<int, int> maxSubArray(vector<int>& nums) {
-
-        int maxSum = INT_MIN;
-        int currSum = 0;
-        int n = nums.size();
-        int start = 0, end = 0;
-
-        for(int i = 0; i < n; i++) {
-            if(currSum + nums[i] < nums[i]) {
-                currSum = nums[i];
-                start = i;
-            } else {
-                currSum += nums[i];
-            }
-            if(currSum > maxSum) {
-                maxSum = currSum;
-                end = i;
-            }
+    int maxProfit(vector<int>& prices) {
+        int maxProfit = 0, minPrice = INT_MAX;
+        for(int price : prices) {
+            minPrice = min(minPrice, price);
+            maxProfit = max(maxProfit, price - minPrice);
         }
-
-        return {start, end};
+        return maxProfit;
     }
 };
 
@@ -41,12 +27,8 @@ int main() {
     }
 
     Solution sol;
-    pair<int, int> result = sol.maxSubArray(nums);
+    int result = sol.maxProfit(nums);
 
-    cout << "Maximum Subarray Indices: [" << result.first << ", " << result.second << "]" << endl;
-    for(int i = result.first; i <= result.second; i++) {
-        cout << nums[i] << " ";
-    }
-    cout << endl;
+    cout << "Maximum Profit: " << result << endl;
     return 0;
 }
