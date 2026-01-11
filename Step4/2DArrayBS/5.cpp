@@ -28,8 +28,10 @@ class Solution {
         }
         
         while(low < high) {
+            
             int mid = low + (high - low) / 2;
             int required = (row * col) / 2 + 1;
+
             if(countLessEqual(mat, mid) < required) {
                 low = mid + 1;
             }
