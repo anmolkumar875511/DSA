@@ -39,6 +39,7 @@ class Solution {
                 high = mid;
             }
         }
+        
         return low;
     }
 };
