@@ -48,9 +48,12 @@ public:
             return 0;
         }
         int mid = low + (high - low) / 2;
+        
         int count = mergeSort(nums, low, mid);
         count += mergeSort(nums, mid + 1, high);
+
         count += countAndMerge(nums, low, mid, high);
+
         return count;
     }
 
