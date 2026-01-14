@@ -1,0 +1,42 @@
+#include<string>
+using namespace std;
+
+class Solution {
+public:
+    int romanToInt(string s) {
+        int sum = 0;
+        int lastValue = 0;
+
+        for (int i = s.size() - 1; i >= 0; i--) {
+            int currentValue = 0;
+
+            switch (s[i]) {
+                case 'I': currentValue = 1; break;
+                case 'V': currentValue = 5; break;
+                case 'X': currentValue = 10; break;
+                case 'L': currentValue = 50; break;
+                case 'C': currentValue = 100; break;
+                case 'D': currentValue = 500; break;
+                case 'M': currentValue = 1000; break;
+            }
+
+            if (currentValue < lastValue) {
+                sum -= currentValue;
+            } else {
+                sum += currentValue;
+            }
+
+            lastValue = currentValue;
+        }
+
+        return sum;
+    }
+};
+
+
+int main() {
+    Solution sol;
+    string s = "MCMXCIV";
+    int result = sol.romanToInt(s);
+    return 0;
+}
