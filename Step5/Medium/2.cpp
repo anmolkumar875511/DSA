@@ -1,3 +1,4 @@
+#include<iostream>
 #include<string>
 using namespace std;
 
@@ -23,5 +24,6 @@ int main() {
     Solution sol;
     string s = "(1+(2*3)+((8)/4))+1";
     int result = sol.maxDepth(s);
+    cout << "Maximum depth of parentheses: " << result << endl;
     return 0;
 }

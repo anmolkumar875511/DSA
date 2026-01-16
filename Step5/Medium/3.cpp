@@ -1,3 +1,4 @@
+#include<iostream>
 #include<string>
 using namespace std;
 
@@ -38,5 +39,6 @@ int main() {
     Solution sol;
     string s = "MCMXCIV";
     int result = sol.romanToInt(s);
+    cout << "Roman number to integer: " << result << endl;
     return 0;
 }
