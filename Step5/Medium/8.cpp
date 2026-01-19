@@ -25,8 +25,8 @@ public:
                 i = j;
             }
         }
-        s.erase(s.begin() + idx, s.end())
-;        return s;
+        s.erase(s.begin() + idx, s.end());
+        return s;
     }
 };
 
