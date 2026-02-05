@@ -2,24 +2,38 @@
 #include<vector>
 using namespace std;
 
-class Solution{
-    public:
-    bool finder(vector<int>& nums, int idx, int sum) {
-        if(idx == nums.size()) {
-            return sum == 0;
+class Solution {
+public:
+    void insert(vector<vector<int>>& v, vector<int> a, vector<int>& nums, int i) {
+        if(i < 0) {
+            v.push_back(a);
+            return;
         }
-        return finder(nums, idx+1, sum) | finder(nums, idx+1, sum-nums[idx]);
+        insert(v, a, nums, i-1);
+        a.push_back(nums[i]);
+        insert(v, a, nums, i-1);
     }
-    bool checkSubsequenceSum(vector<int>& nums, int k) {
-         return finder(nums, 0, k);
+
+    vector<vector<int>> subsets(vector<int>& nums) {
+        int n = nums.size() - 1;
+        vector<vector<int>> v;
+        vector<int> a;
+        insert(v, a, nums, n);
+        return v;
     }
 };
 
-
 int main() {
     Solution sol;
-    vector<int> nums = {1, 2, 3, 4, 5};
-    int k = 5;
-    cout << sol.checkSubsequenceSum(nums, k) << endl; // Output: 1 (true)
+    vector<int> nums = {1, 2, 3};
+    vector<vector<int>> result = sol.subsets(nums);
+    
+    for (const auto& subset : result) {
+        cout << "[ ";
+        for (int num : subset) {
+            cout << num << " ";
+        }
+        cout << "]" << endl;
+    }
     return 0;
 }
