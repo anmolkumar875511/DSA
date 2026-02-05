@@ -2,43 +2,22 @@
 #include<vector>
 using namespace std;
 
-class Solution {
-public:
-    void helper(vector<vector<int>>& ans, vector<int>& v, vector<int>& candidates, int i, int target) {
-        if(target == 0) {
-            ans.push_back(v);
-            return;
-        }
-        if(i == candidates.size() || target < 0) {
-            return;
-        }
-        v.push_back(candidates[i]);
-        helper(ans, v, candidates, i, target-candidates[i]);
-        v.pop_back();
-        helper(ans, v, candidates, i+1, target);
+class Solution{
+    public:
+    int counter (vector<int> & nums, int i, int sum) {
+        if(sum == 0) return 1;
+        if(i == nums.size() || sum < 0) return 0;
+        return counter(nums, i+1, sum) + counter(nums, i+1, sum-nums[i]);
     }
-
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<int> v;
-        vector<vector<int>> ans;
-        helper(ans, v, candidates, 0, target);
-        return ans;
+    int countSubsequenceWithTargetSum(vector<int>& nums, int k){
+    	return counter(nums, 0, k);
     }
 };
 
-
 int main() {
     Solution sol;
-    vector<int> candidates = {2, 3, 6, 7};
-    int target = 7;
-    vector<vector<int>> result = sol.combinationSum(candidates, target);
-    
-    for (const auto& combination : result) {
-        cout << "[ ";
-        for (int num : combination) {
-            cout << num << " ";
-        }
-        cout << "]" << endl;
-    }
+    vector<int> nums = {1, 2, 3, 4, 5};
+    int k = 5;
+    cout << sol.countSubsequenceWithTargetSum(nums, k) << endl; // Output: 3
     return 0;
 }
