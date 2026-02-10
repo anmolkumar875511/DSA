@@ -38,6 +38,7 @@ public:
     }
 };
 
+
 int main() {
     Solution obj;
     string s = "ADOBECODEBANC";
