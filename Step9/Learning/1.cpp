@@ -40,6 +40,9 @@ public:
     bool isEmpty() {
         return idx == -1;
     }
+    ~ArrayStack() {
+        delete[] stack;
+    }
 };
 
 
