@@ -13,7 +13,6 @@ public:
             if(height[i] > ele) ele = height[i];
             temp[i] = ele;
         }
-        cout << endl;
         int ans = 0;
         ele = height[n -1];
         for(int i = n - 1; i >= 0; i--) {
