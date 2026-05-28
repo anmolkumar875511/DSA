@@ -30,6 +30,7 @@ public:
     }
 };
 
+
 int main() {
     Solution sol;
     vector<char> tasks = {'A', 'A', 'A', 'B', 'B', 'B'};
