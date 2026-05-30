@@ -48,7 +48,6 @@ public:
 
         return {false, INT_MIN, INT_MAX, 0};
     }
-
     int maxSumBST(TreeNode* root) {
         dfs(root);
         return ans;
