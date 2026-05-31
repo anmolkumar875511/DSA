@@ -1,6 +1,5 @@
 #include<iostream>
 #include<string>
-#include<unordered_map>
 #include<stack>
 using namespace std;
 
@@ -31,7 +30,7 @@ public:
 
 int main() {
     Solution sol;
-    string s = "((a-b/c)*(a/k-l))";
+    string s = "ab*c+";
     cout << sol.postToInfix(s);
     return 0;
 }
