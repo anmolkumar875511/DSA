@@ -5,8 +5,7 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> bfs(int src, int V,
-                    const vector<vector<int>>& adj) {
+    vector<int> bfs(int src, int V, const vector<vector<int>>& adj) {
         vector<int> dist(V, -1);
         queue<int> q;
         dist[src] = 0;

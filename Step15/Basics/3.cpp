@@ -5,16 +5,14 @@ using namespace std;
 
 class Solution {
 public:
-    void dfsRecursive(int v, vector<bool>& visited,
-                      const vector<vector<int>>& adj) {
+    void dfsRecursive(int v, vector<bool>& visited, const vector<vector<int>>& adj) {
         visited[v] = true;
         for (int w : adj[v])
             if (!visited[w])
                 dfsRecursive(w, visited, adj);
     }
 
-    void dfsIterative(int src, int V,
-                      const vector<vector<int>>& adj) {
+    void dfsIterative(int src, int V, const vector<vector<int>>& adj) {
         vector<bool> visited(V, false);
         stack<int> stk;
         stk.push(src);
