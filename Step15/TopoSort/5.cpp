@@ -1,43 +1,46 @@
 #include<iostream>
 #include<vector>
-#include<stack>
+#include<queue>
 using namespace std;
 
 class Solution {
-private:
-    bool dfs(int node, stack<int>& st, vector<bool>& vis, vector<bool>& pathVis, vector<vector<int>>& graph) {
-        vis[node] = true;
-        pathVis[node] = true;
-        for(int neigh : graph[node]) {
-            if(!vis[neigh]) {
-                if(dfs(neigh, st, vis, pathVis, graph)) return true;
-            }
-            else if(pathVis[neigh]) return true;
-        }
-        pathVis[node] = false;
-        st.push(node);
-        return false;
-    }
 public:
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
         vector<vector<int>> graph(numCourses);
-        for(vector<int>& prerequisite : prerequisites) {
+        for(auto& prerequisite : prerequisites) {
             graph[prerequisite[1]].push_back(prerequisite[0]);
         }
 
-        vector<bool> vis(numCourses, false), pathVis(numCourses, false);
-        stack<int> st;
-        vector<int> ans;
+        vector<int> inDegree(numCourses, 0);
         for(int i = 0; i < numCourses; i++) {
-            if(vis[i]) continue;
-            if(dfs(i, st, vis, pathVis, graph)) return ans;
+            for(int v : graph[i]) {
+                inDegree[v]++;
+            }
         }
 
-        while(!st.empty()) {
-            ans.push_back(st.top());
-            st.pop();
+        queue<int> q;
+        for(int i = 0; i < numCourses; i++) {
+            if(inDegree[i] == 0) {
+                q.push(i);
+            }
         }
 
+        vector<int> ans;
+        while(!q.empty()) {
+            int u = q.front();
+            q.pop();
+            ans.push_back(u);
+            for(int v : graph[u]) {
+                inDegree[v]--;
+                if(inDegree[v] == 0) {
+                    q.push(v);
+                }
+            }
+        }
+
+        if(ans.size() != numCourses) {
+            return {};
+        }
         return ans;
     }
 };
