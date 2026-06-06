@@ -1,45 +1,44 @@
 #include<iostream>
 #include<vector>
+#include<queue>
 using namespace std;
 
 class Solution {
-private:
-    bool dfs(int u, vector<vector<int>>& adj, vector<int>& vis, vector<int>& pathVis) {
-        vis[u] = 1;
-        pathVis[u] = 1;
-
-        for (int v : adj[u]) {
-            if (!vis[v]) {
-                if (dfs(v, adj, vis, pathVis))
-                    return true;
-            }
-            else if (pathVis[v]) {
-                return true;
-            }
-        }
-
-        pathVis[u] = 0;
-        return false;
-    }
-
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<vector<int>> adj(numCourses);
-        for (auto &p : prerequisites) {
-            adj[p[1]].push_back(p[0]);
+        vector<vector<int>> graph(numCourses);
+        for(auto& prerequisite : prerequisites) {
+            graph[prerequisite[1]].push_back(prerequisite[0]);
         }
 
-        vector<int> vis(numCourses, 0);
-        vector<int> pathVis(numCourses, 0);
-
-        for (int i = 0; i < numCourses; i++) {
-            if (!vis[i]) {
-                if (dfs(i, adj, vis, pathVis))
-                    return false;
+        vector<int> inDegree(numCourses, 0);
+        for(int i = 0; i < numCourses; i++) {
+            for(int v : graph[i]) {
+                inDegree[v]++;
             }
         }
 
-        return true;
+        queue<int> q;
+        for(int i = 0; i < numCourses; i++) {
+            if(inDegree[i] == 0) {
+                q.push(i);
+            }
+        }
+
+        vector<int> ans;
+        while(!q.empty()) {
+            int u = q.front();
+            q.pop();
+            ans.push_back(u);
+            for(int v : graph[u]) {
+                inDegree[v]--;
+                if(inDegree[v] == 0) {
+                    q.push(v);
+                }
+            }
+        }
+
+        return ans.size() == numCourses;
     }
 };
 
