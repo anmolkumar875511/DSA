@@ -33,7 +33,7 @@ This repository follows the same **step & lecture-wise organization**.
 
 * **Language:** C++
 * **Compiler:** `g++`
-* **Text Editor:** `vim`
+* **Text Editor:** `vim`, `vscode`
 * **Operating System:** ArchLinux
 * **Version Control:** Git & GitHub
 
