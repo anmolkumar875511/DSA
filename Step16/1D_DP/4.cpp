@@ -3,21 +3,21 @@
 using namespace std;
 
 class Solution {
-private:
-    int rec(int i, vector<int>& nums, vector<int>& dp) {
-        if(i < 0) {
-            return 0;
-        }
-        if(dp[i] != -1) return dp[i];
-        int pick = nums[i] + rec(i - 2, nums, dp);
-        int not_pick = rec(i - 1, nums, dp);
-        return dp[i] =  max(pick, not_pick);
-    }
 public:
     int rob(vector<int>& nums) {
         int n = nums.size();
-        vector<int> dp(n, -1);
-        return rec(n - 1, nums, dp);
+        int prev_1 = nums[0];
+        int prev_2 = 0;
+        for(int i = 1; i < n; i++) {
+            int take = nums[i];
+            if(i > 1) {
+                take += prev_2;
+            }
+            int curr = max(take, prev_1);
+            prev_2 = prev_1;
+            prev_1 = curr;
+        }
+        return prev_1;
     }
 };
 
